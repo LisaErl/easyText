@@ -426,7 +426,7 @@ class easyTextAlongPathWidget(QtGui.QWidget):
         wire = wObj.Shape
         textshape = tObj.Shape
         descenderList = tObj.DescenderList
-        pathShape = etf.makeGlyph2Path(wire, textshape, descenderList, centerAt = centerAt, position = position, offset = offset)
+        pathShape = etp.makeGlyph2Path(wire, textshape, descenderList, centerAt = centerAt, position = position, offset = offset)
         if pathShape:
             pobj = Part.show(pathShape, "etPreviewTaP")
             etf.setShapeColor(pobj, (0.00,0.00,0.00))
