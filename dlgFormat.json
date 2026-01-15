@@ -1,0 +1,40 @@
+{
+    "Layout": {
+        "Groups": {
+            "FontFormats": {
+                "Buttons": {
+                    "Bold": {
+                        "Name": "Bold", 
+                        "IconOn": "F_Bold.svg", 
+                        "IconOff": "F_BoldInact.svg", 
+                        "Tooltip": "Bold"
+                    }, 
+                    "Italic": {
+                        "Name": "Italic", 
+                        "IconOn": "F_Italic.svg", 
+                        "IconOff": "F_ItalicInact.svg", 
+                        "Tooltip": "Italic"
+                    }, 
+                    "Underline": {
+                        "Name": "Underline", 
+                        "IconOn": "F_Underline.svg", 
+                        "IconOff": "F_UnderlineInact.svg", 
+                        "Tooltip": "Underline"
+                    }
+                }
+            }
+        }
+    }, 
+    "Settings": {
+        "Pointsize": {
+            "Text": "Change Pointsize for Display", 
+            "Value": 20, 
+            "Tooltip": "Pointsize for display in this dialog"
+        }, 
+        "Buttonsize": {
+            "Text": "Change Buttonsize", 
+            "Value": 24, 
+            "Tooltip": "Buttonsize"
+        }
+    }
+}
