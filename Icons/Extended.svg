@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 12.7 12.7"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="Extended.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="15.270833"
+     inkscape:cx="22.821283"
+     inkscape:cy="24.000001"
+     inkscape:current-layer="text948"
+     showguides="true" />
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect11338"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect11271"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+  </defs>
+  <g
+     inkscape:label="Ebene 3"
+     inkscape:groupmode="layer"
+     id="g38597"
+     style="display:inline">
+    <g
+       aria-label="SVG"
+       id="text1396"
+       style="font-weight:bold;font-size:8.5px;font-family:'Intruding Cat';-inkscape-font-specification:'Intruding Cat Bold';text-align:center;text-anchor:middle;fill:#00ff00;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke">
+      <g
+         aria-label="CPY"
+         id="text948"
+         style="font-size:7.2px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';fill:#000000">
+        <g
+           id="g877"
+           transform="translate(0.13229153)">
+          <circle
+             style="font-weight:bold;font-size:7.2px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';text-align:center;text-anchor:middle;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+             id="path8213-3"
+             cx="8.7056217"
+             cy="6.3499999"
+             r="0.79374999" />
+          <circle
+             style="font-weight:bold;font-size:7.2px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';text-align:center;text-anchor:middle;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+             id="path8213-3-1"
+             cx="3.7297952"
+             cy="6.3499999"
+             r="0.79374999" />
+          <circle
+             style="font-weight:bold;font-size:7.2px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';text-align:center;text-anchor:middle;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+             id="path8213-2-3"
+             cx="6.2177086"
+             cy="6.3499999"
+             r="0.79374999" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

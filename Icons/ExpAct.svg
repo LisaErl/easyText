@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 12.7 12.7"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="ExpInact.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="6.987545"
+     inkscape:cx="30.697477"
+     inkscape:cy="26.261012"
+     inkscape:current-layer="text948"
+     showguides="true" />
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect11338"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect11271"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+  </defs>
+  <g
+     inkscape:label="Ebene 3"
+     inkscape:groupmode="layer"
+     id="g38597"
+     style="display:inline">
+    <g
+       aria-label="SVG"
+       id="text1396"
+       style="font-weight:bold;font-size:8.5px;font-family:'Intruding Cat';-inkscape-font-specification:'Intruding Cat Bold';text-align:center;text-anchor:middle;fill:#00ff00;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke">
+      <g
+         aria-label="CPY"
+         id="text948"
+         style="font-size:7.2px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';fill:#000000">
+        <path
+           style="font-weight:bold;font-size:10px;font-family:'Oleo Script Swash Caps';-inkscape-font-specification:'Oleo Script Swash Caps Bold';font-variant-caps:all-small-caps;text-align:center;text-anchor:middle;display:inline;fill:#c8c6c5;fill-opacity:1;stroke-width:1.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:8;paint-order:markers fill stroke"
+           d="m 12.457081,11.402345 q 0.265001,0.234003 0.24091,0.542462 -0.02409,0.308459 -0.252956,0.531826 Q 12.204125,12.7 11.830714,12.7 H 0.86928939 q -0.385457,0 -0.614323,-0.223367 -0.240909,-0.223367 -0.252956,-0.531826 -0.0241,-0.308459 0.240911,-0.542462 L 5.5068134,6.56273 H 0.86928939 q -0.385458,0 -0.614323,-0.2233666 -0.24091,-0.2233668 -0.252956,-0.531826 -0.0241,-0.2978223 0.240909,-0.5424623 L 5.7236333,0.23400314 Q 5.9765896,1.4e-7 6.3500007,1.4e-7 q 0.3613659,0 0.6263672,0.234003 L 12.457081,5.2650751 q 0.265001,0.24464 0.24091,0.5424623 -0.02409,0.3084592 -0.252956,0.531826 Q 12.204125,6.56273 11.830714,6.56273 H 7.1811418 Z"
+           id="path2972" />
+      </g>
+    </g>
+  </g>
+</svg>
