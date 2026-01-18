@@ -7,8 +7,8 @@
    viewBox="0 0 12.7 12.7"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
-   sodipodi:docname="EasyText.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="easyText.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -66,16 +66,16 @@
       <g
          aria-label="CPY"
          id="text948"
-         style="font-size:7.2px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';fill:#000000">
+         style="font-size:7.2px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';fill:#0000ff;fill-opacity:1">
         <text
            xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:Garamond;-inkscape-font-specification:Garamond;fill:#000000;stroke-width:0.1;stroke-linejoin:round;paint-order:markers fill stroke"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:Garamond;-inkscape-font-specification:Garamond;fill:#0000ff;stroke-width:0.1;stroke-linejoin:round;paint-order:markers fill stroke;fill-opacity:1"
            x="3.2153542"
            y="11.549118"
            id="text410"><tspan
              sodipodi:role="line"
              id="tspan408"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:Garamond;-inkscape-font-specification:Garamond;stroke-width:0.1"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:Garamond;-inkscape-font-specification:Garamond;stroke-width:0.1;fill:#0000ff;fill-opacity:1"
              x="3.2153542"
              y="11.549118">T</tspan></text>
       </g>
@@ -87,19 +87,19 @@
          id="text1687"><tspan
            sodipodi:role="line"
            id="tspan1685"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5px;font-family:Garamond;-inkscape-font-specification:'Garamond Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.99999;stroke-dasharray:none"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5px;font-family:Garamond;-inkscape-font-specification:'Garamond Bold';fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1.99999;stroke-dasharray:none"
            x="7.8369179"
            y="11.60527">ext</tspan></text>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4px;font-family:Garamond;-inkscape-font-specification:'Garamond Bold';fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1.99999;stroke-dasharray:none;paint-order:markers fill stroke"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4px;font-family:Garamond;-inkscape-font-specification:'Garamond Bold';fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1.99999;stroke-dasharray:none;paint-order:markers fill stroke"
          x="3.4380794"
          y="5.3187761"
          id="text1691"
          transform="rotate(-17.989683)"><tspan
            sodipodi:role="line"
            id="tspan1689"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4px;font-family:Arabella;-inkscape-font-specification:'Arabella Bold';fill:#0000ff;fill-opacity:1;stroke-width:1.99999"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4px;font-family:Arabella;-inkscape-font-specification:'Arabella Bold';fill:#ff00ff;fill-opacity:1;stroke-width:1.99999"
            x="3.4380794"
            y="5.3187761">Easy</tspan></text>
     </g>
