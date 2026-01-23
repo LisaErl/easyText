@@ -8,7 +8,7 @@ import math
 import DraftGeomUtils
 import Part
 import Draft
-#from BOPTools import BOPFeatures
+from enum import Enum
 
 import os
 __dir__ = os.path.dirname(__file__)
@@ -192,6 +192,9 @@ def fontExtToString(qfont):
         elif isinstance(value, float):
             if debug:print("float")
             ret.append(str(value))
+        elif isinstance(value, Enum):
+            if debug:print("Enum")
+            ret.append(str(value.value))
         else:
             if debug:print("enum")
             ret.append(str(int(value)))                
@@ -867,7 +870,50 @@ def pointOnEdgeByLen(edge, length):
     if debug: print("v: " + str(v))
     if debug: print("etFunctions pointOnEdgeByLen Ende")
     return v
+
+def makeBottom4Shape(shape, height, addX, addY, cornerFilletRadius, topFilletRadius):
+    x = math.ceil(shape.BoundBox.XLength) + int(addX)
+    y = math.ceil(shape.BoundBox.YLength) + int(addY)
+    points = [FreeCAD.Vector(0,0,0), FreeCAD.Vector(0,y,0), FreeCAD.Vector(x,y,0), FreeCAD.Vector(x,0,0)]
+    edges = [Part.LineSegment(p1, p2).toShape() for p1, p2 in zip(points,points[1:] + [points[0]])]
+    bottom = Part.Face(Part.Wire(edges))
+    bottom = bottom.extrude(FreeCAD.Vector(0,0,-height))
+    diff = shape.BoundBox.Center - bottom.BoundBox.Center
+    diff.z = 0
+    newPlacement(bottom, diff = diff)
+    if cornerFilletRadius > 0:
+        edges = [edge for edge in bottom.Edges if edge.BoundBox.ZMin == bottom.BoundBox.ZMin and edge.BoundBox.ZMax == bottom.BoundBox.ZMax]
+        bottom = bottom.makeFillet(cornerFilletRadius, edges)
+    if topFilletRadius > 0:
+        edges = [edge for edge in bottom.Edges if edge.BoundBox.ZMin == bottom.BoundBox.ZMax and edge.BoundBox.ZMax == bottom.BoundBox.ZMax]
+        bottom = bottom.makeFillet(topFilletRadius, edges)    
+    return bottom
+
+def makeGlyphRevolve(tobj, degree, forceBaseline, sunken, makeBase, baseHeight, baseAddX, baseAddY, baseCornerFilletRadius, baseTopFilletRadius):
+    bottom = None
+    descenderList = tobj.DescenderList
+    glyphs = tobj.Shape.SubShapes
+    if forceBaseline:
+        for desc, glyph in zip(descenderList, glyphs):
+            if desc > 0.0:
+                newPlacement(glyph, diff = FreeCAD.Vector(0,desc,0))
+        descenderList = [0.0,] * len(descenderList)
+    if max(descenderList) > 0.0:
+        _err("etFunctions makeGlyphRevolution: The individual letters do not all lie on the baseline, and therefore a revolution cannot be performed. A common baseline can be forced using the `forceBaseline` parameter.")
+        return None
+    shape = Part.Compound(glyphs)
+    if makeBase:
+        bottom = makeBottom4Shape(shape, baseHeight, baseAddX, baseAddY, baseCornerFilletRadius, baseTopFilletRadius)
+    revolveBase = FreeCAD.Vector(shape.BoundBox.XMax, shape.BoundBox.YMin, shape.BoundBox.ZMin)
+    revolveAxis = FreeCAD.Vector(1,0,0)
+    revolveAngle = degree
+    rshape = shape.revolve(revolveBase, revolveAxis, revolveAngle)
+    newPlacement(rshape, diff = FreeCAD.Vector(0,0,-sunken))
+    if bottom:
+        rshape = Part.Compound([rshape, bottom])
+    return rshape
     
+
 
 
 
