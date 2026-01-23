@@ -63,3 +63,19 @@ def makeEasyTextAlongPath():
     FreeCAD.ActiveDocument.commitTransaction() #commit transaction
     if debug: print("easyText makeEasyTextAlongPath Ende")
     return obj
+
+def makeEasyTextRevolve():
+    debug = True
+    if debug: print("easyText makeEasyTextRevolve Start")
+    FreeCAD.ActiveDocument.openTransaction("easyText")
+    '''Python command to to arrange the letters of a text along a path'''
+    import easyTextRevolve
+    obj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "easyTextRevolve")
+    easyTextRevolve.easyTextRevolveFeature(obj)
+    vp = easyTextRevolve.easyTextRevolveViewProvider(obj.ViewObject)
+    FreeCAD.ActiveDocument.recompute()
+    vp.setEdit(obj.ViewObject, 1)
+    FreeCADGui.ActiveDocument.resetEdit()    
+    FreeCAD.ActiveDocument.commitTransaction() #commit transaction
+    if debug: print("easyText makeEasyTextRevolve Ende")
+    return obj
