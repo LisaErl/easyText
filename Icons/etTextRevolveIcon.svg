@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 12.7 12.7"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="etTextRevolveIcon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="7.6145835"
+     inkscape:cx="-6.9603282"
+     inkscape:cy="36.837208"
+     inkscape:current-layer="g4"
+     showguides="true" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="RoundedArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Rounded arrow"
+       markerWidth="0.6"
+       markerHeight="0.6"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path8" />
+    </marker>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect11338"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect11271"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+  </defs>
+  <g
+     inkscape:label="Ebene 3"
+     inkscape:groupmode="layer"
+     id="g38597"
+     style="display:inline">
+    <g
+       aria-label="SVG"
+       id="text1396"
+       style="font-weight:bold;font-size:8.5px;font-family:'Intruding Cat';-inkscape-font-specification:'Intruding Cat Bold';text-align:center;text-anchor:middle;fill:#00ff00;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke">
+      <g
+         id="g4"
+         transform="translate(-0.9264873,3.6139451)">
+        <g
+           id="g1"
+           transform="translate(-0.31443769,-0.42295308)">
+          <path
+             sodipodi:type="spiral"
+             style="fill:none;fill-rule:evenodd;stroke:#ff00ff;stroke-width:2.79568;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow)"
+             id="path2"
+             sodipodi:cx="13.526675"
+             sodipodi:cy="10.768809"
+             sodipodi:expansion="1"
+             sodipodi:revolution="3"
+             sodipodi:radius="16.373789"
+             sodipodi:argument="-18.310513"
+             sodipodi:t0="0.68787187"
+             d="M 20.180843,19.856095 C 15.186336,24.140481 7.5078246,23.171816 3.3384957,18.229107 -1.3823602,12.632568 -0.28042909,4.0904789 5.2602474,-0.52026395 11.458349,-5.6780915 20.864888,-4.4427037 25.916642,1.6962517 29.941996,6.5879129 30.522933,13.60077 27.578663,19.173725"
+             transform="matrix(0.35719013,0,0,0.35829082,1.9598277,-0.6359334)" />
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:Garamond;-inkscape-font-specification:'Garamond Bold';text-align:center;text-anchor:middle;display:inline;fill:#0000ff;fill-opacity:1;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+             x="7.1080303"
+             y="5.8781447"
+             id="text410"><tspan
+               sodipodi:role="line"
+               id="tspan408"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10px;font-family:Garamond;-inkscape-font-specification:'Garamond Bold';fill:#0000ff;fill-opacity:1;stroke-width:0.1"
+               x="7.1080303"
+               y="5.8781447">G</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
