@@ -1,5 +1,6 @@
 from PySide import QtCore, QtGui
 
+from enum import EnumMeta
 import pathlib
 import os
 __dir__ = os.path.dirname(__file__)
@@ -66,7 +67,9 @@ class fontFormatWidget(QtGui.QWidget):
         family = self.cbFamily.currentFont().family()
         self.qfont.setFamily(family)
         self.fontChanged.emit(self.qfont)
-        self.cbFamily.setFont(QtGui.QFontDatabase().font(family, QtGui.QFontDatabase().styles(family)[0], 16))        
+        formatfont = self.qfont
+        formatfont.setPointSize(16)
+        self.cbFamily.setFont(formatfont)
         
     def __UI_FormatsShort__(self):
         debug = True
@@ -85,8 +88,12 @@ class fontFormatWidget(QtGui.QWidget):
             iconpathOn = os.path.join(iconpath, "F_" + key + ".svg")
             iconpathOff = os.path.join(iconpath, "F_" + key + "Inact.svg")
             icon = QtGui.QIcon()
-            icon.addFile(iconpathOn, size, mode=icon.Normal, state=icon.On)
-            icon.addFile(iconpathOff, size, mode=icon.Normal, state=icon.Off)
+            try:
+                icon.addFile(iconpathOn, size, mode=icon.Normal, state=icon.On)
+                icon.addFile(iconpathOff, size, mode=icon.Normal, state=icon.Off)
+            except:
+                icon.addFile(iconpathOn, size, mode=icon.Mode.Normal, state=icon.State.On)
+                icon.addFile(iconpathOff, size, mode=icon.Mode.Normal, state=icon.State.Off)
             btn = QtGui.QToolButton()
             btn.setIconSize(size)
             btn.setCheckable(True)
@@ -259,7 +266,16 @@ class fontFormatWidget(QtGui.QWidget):
         return lBox         
         
     def getEnumKeyAsString(self, enum):
-        return str(enum).split(".")[-1].replace("'>", "")
+        debug = False
+        if debug: print("dlgFontPanel getEnumKeyAsString Start")
+        if debug: print("enum: " + str(enum))
+        if isinstance(enum, EnumMeta):
+            ret = enum.__name__.lower()
+        else:
+            ret = str(enum).split(".")[-1].replace("'>", "")
+        if debug: print("ret: " + str(ret))
+        if debug: print("dlgFontPanel getEnumKeyAsString Ende")
+        return ret
         
     def getAttrFromEnum(self, enum):
         strkey = str(enum).split(".")[-1].replace("'>", "")
@@ -279,47 +295,63 @@ class fontFormatWidget(QtGui.QWidget):
         return strval
         
     def __UI_EnumGroup__(self, enum):
-        #print("dlgFormat __UI_EnumGroup__ Start")
-        #print("enum: " + str(enum))
+        debug = False
+        if debug: print("dlgFontPanel __UI_EnumGroup__ Start")
+        if debug: print("enum: " + str(enum))
+        if debug: print("isinstance(enum, EnumMeta): " + str(isinstance(enum, EnumMeta)))
         hbox = QtGui.QHBoxLayout()
-        options = list(enum.values.keys())
-        #print("options: " + str(options))
-        title = self.getEnumKeyAsString(enum)
-        #print("title: " + str(title))     
-        cur = self.getCurrentEnumValueAsString(enum)
-        #print("cur: " + str(cur))
+
+        if isinstance(enum, EnumMeta):
+            options = enum.__members__.keys()
+            fontval = self.qfont.__getattribute__(enum.__name__.lower())()
+            cur = [key for key in options if enum.__members__[key] == fontval][0]
+            title = enum.__name__
+        else:
+            title = str(enum).split(".")[-1].replace("'>", "")
+            options = list(enum.values.keys())
+            cur = self.getCurrentEnumValueAsString(enum)
+        if debug: print("options: " + str(options))
+        if debug: print("cur: " + str(cur))
+        if debug: print("title: " + str(title))
         self.cbEnum = QtGui.QComboBox()
         self.cbEnum.setEditable(False)        
         self.cbEnum.addItems(options)
         self.cbEnum.setCurrentText(cur)
-        self.cbEnum.currentIndexChanged[int].connect(self.cbEnumOptionChanged)
+        self.cbEnum.currentIndexChanged.connect(self.cbEnumOptionChanged)
         self.cbEnum.setObjectName(title)
         hbox.addWidget(self.cbEnum)
         hbox.addStretch()
         group = QtGui.QGroupBox(title + ":")
         group.setLayout(hbox) 
-        #print("dlgFormat __UI_EnumGroup__ Ende")
+        if debug: print("dlgFontPanel __UI_EnumGroup__ Ende")
         return group
         
     def cbEnumOptionChanged(self, index):
-        print("dlgFormat cbEnumOptionChanged Start")
-        print("index: " + str(index))
+        debug = False
+        if debug: print("dlgTest cbEnumOptionChanged Start")
+        if debug: print("self.sender().objectName(): " + str(self.sender().objectName()))
         if self.sender().objectName() == "Weight" :
             enum = QtGui.QFont.Weight
         elif self.sender().objectName() == "Style" :
             enum = QtGui.QFont.Style
         elif self.sender().objectName() == "Capitalization" :
             enum = QtGui.QFont.Capitalization
-        key = list(enum.values.keys())[index]
-        value = enum.values[key]
-        print("enum: " + str(enum))
-        print("key: " + str(key))
-        print("value: " + str(value))
+            
+        currentText = self.sender().currentText()        
+        if debug: print("currentText: " + str(currentText))
+        if isinstance(enum, EnumMeta):
+            value = enum.__members__[currentText]
+        else:
+            key = currentText
+            value = enum.values[key]
+        if debug: print("currentText: " + str(currentText))
         if self.sender().objectName() == "Weight" :
             self.qfont.setWeight(value)
         elif self.sender().objectName() == "Style" :
             self.qfont.setStyle(value)
         elif self.sender().objectName() == "Capitalization" :
+            if debug: print("self.qfont.capitalization(): " + str(self.qfont.capitalization()))
             self.qfont.setCapitalization(value)
-        self.fontChanged.emit(self.qfont)       
-        print("dlgFormat cbEnumOptionChanged Ende")
+        if debug: print("self.qfont.capitalization(): " + str(self.qfont.capitalization()))
+        self.fontChanged.emit(self.qfont)
+        if debug: print("dlgTest cbEnumOptionChanged Ende")
