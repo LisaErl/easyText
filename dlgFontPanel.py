@@ -169,7 +169,8 @@ class fontFormatWidget(QtGui.QWidget):
         if debug: print("fontFormatWidget onToggleGroup Ende")
         
     def __UI_Spacing__(self):
-        print("dlgFormat __UI_Spacing__ Start")        
+        debug = False
+        if debug: print("dlgFontPanel __UI_Spacing__ Start")        
         hbox = QtGui.QHBoxLayout()
         sbl = QtGui.QSpinBox()
         sbl.setMinimum(-100)
@@ -219,50 +220,54 @@ class fontFormatWidget(QtGui.QWidget):
         lBox.addWidget(groupw)
         #lBox.addWidget(groupr) 
         lBox.addStretch()
-        print("dlgFormat __UI_Spacing__ Ende")
+        if debug: print("dlgFontPanel __UI_Spacing__ Ende")
         return lBox                 
         
     def onStretch(self):
-        print("dlgFormat onStretch Start")
+        debug = False
+        if debug: print("dlgFontPanel onStretch Start")
         value = self.sender().value()
-        print("value: " + str(value))
+        if debug: print("value: " + str(value))
         self.qfont.setStretch(value)
         self.fontChanged.emit(self.qfont)
-        print("dlgFormat onStretch Ende")
+        if debug: print("dlgFontPanel onStretch Ende")
         
     def onLetterSpacing(self):
-        #print("dlgFormat onLetterSpacing Start")
+        debug = False
+        if debug: print("dlgFontPanel onLetterSpacing Start")
         value = self.sender().value()
-        #print("value: " + str(value))
+        if debug: print("value: " + str(value))
         self.qfont.setLetterSpacing(QtGui.QFont.AbsoluteSpacing, value)
         self.fontChanged.emit(self.qfont)
-        #print("dlgFormat onLetterSpacing Ende")
+        if debug: print("dlgFontPanel onLetterSpacing Ende")
         
     def onWordSpacing(self):
-        #print("dlgFormat onWordSpacing Start")
+        debug = False
+        if debug: print("dlgFontPanel onWordSpacing Start")
         value = self.sender().value()
-        #print("value: " + str(value))
+        if debug: print("value: " + str(value))
         self.qfont.setWordSpacing(value)
         self.fontChanged.emit(self.qfont)
-        #print("dlgFormat onWordSpacing Ende")
+        if debug: print("dlgFontPanel onWordSpacing Ende")
         
     def __UI_WeightStyleCapitalize__(self):
-        #print("dlgFormat __UI_WeightStyleCapitalize__ Start")        
+        debug = False
+        if debug: print("dlgFontPanel __UI_WeightStyleCapitalize__ Start")        
         #hbox = QtGui.QHBoxLayout()
         groupw = self.__UI_EnumGroup__(QtGui.QFont.Weight) 
         groups = self.__UI_EnumGroup__(QtGui.QFont.Style)   
         groupc = self.__UI_EnumGroup__(QtGui.QFont.Capitalization)        
         if isinstance(self.lBox, QtGui.QHBoxLayout):
-            #print("QHBoxLayout")
+            if debug: print("QHBoxLayout")
             lBox = QtGui.QHBoxLayout()
         elif isinstance(self.lBox, QtGui.QVBoxLayout):
-            #print("QVBoxLayout")
+            if debug: print("QVBoxLayout")
             lBox = QtGui.QVBoxLayout()
         lBox.addWidget(groupw) 
         lBox.addWidget(groups)
         lBox.addWidget(groupc)
         lBox.addStretch()
-        #print("dlgFormat __UI_WeightStyleCapitalize__ Ende")
+        if debug: print("dlgFontPanel __UI_WeightStyleCapitalize__ Ende")
         return lBox         
         
     def getEnumKeyAsString(self, enum):
@@ -282,16 +287,17 @@ class fontFormatWidget(QtGui.QWidget):
         return strkey[0].lower() + strkey[1:]
         
     def getCurrentEnumValueAsString(self, enum):
-        #print("dlgFormat getCurrentEnumValueAsString Start")
+        debug = False
+        if debug: print("dlgFontPanel getCurrentEnumValueAsString Start")
         attr = self.getAttrFromEnum(enum)
         val = self.qfont.__getattribute__(attr)()
         strval = str(val).split(".")[-1]
-        #print("strval: " + str(strval))
+        if debug: print("strval: " + str(strval))
         if strval.isdigit():
             strval = [key for key in list(enum.values.keys()) if int(strval) == int(enum.values[key])][0]
             #keys = [key for key in enumerate(list(enum.values.keys())) if int(enum.values[key]) == strval]
-            #print("strval: " + str(strval))
-        #print("dlgFormat getCurrentEnumValueAsString Ende")
+            if debug: print("strval: " + str(strval))
+        if debug: print("dlgFontPanel getCurrentEnumValueAsString Ende")
         return strval
         
     def __UI_EnumGroup__(self, enum):
@@ -328,7 +334,7 @@ class fontFormatWidget(QtGui.QWidget):
         
     def cbEnumOptionChanged(self, index):
         debug = False
-        if debug: print("dlgTest cbEnumOptionChanged Start")
+        if debug: print("dlgFontPanel cbEnumOptionChanged Start")
         if debug: print("self.sender().objectName(): " + str(self.sender().objectName()))
         if self.sender().objectName() == "Weight" :
             enum = QtGui.QFont.Weight
@@ -354,5 +360,6 @@ class fontFormatWidget(QtGui.QWidget):
             self.qfont.setCapitalization(value)
         if debug: print("self.qfont.capitalization(): " + str(self.qfont.capitalization()))
         self.fontChanged.emit(self.qfont)
-        if debug: print("dlgTest cbEnumOptionChanged Ende")
+        if debug: print("dlgFontPanel cbEnumOptionChanged Ende")
+
 
