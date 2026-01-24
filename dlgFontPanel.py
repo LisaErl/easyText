@@ -20,7 +20,7 @@ class fontFormatWidget(QtGui.QWidget):
     resized = QtCore.Signal()
     
     def __init__(self, qfont, pointsize, buttonsize, lBox, texttype, *args):
-        debug = True
+        debug = False
         if debug:  print("fontFormatWidget __init__ Start")
         QtGui.QWidget.__init__(self, *args)
         if debug: print("texttype: " + str(texttype))
@@ -72,7 +72,7 @@ class fontFormatWidget(QtGui.QWidget):
         self.cbFamily.setFont(formatfont)
         
     def __UI_FormatsShort__(self):
-        debug = True
+        debug = False
         if debug: print("fontFormatWidget __UI_FormatsShort__ Start")
         if self.texttype == "easyTextGlyphs":
             formats = ["bold", "italic"]
@@ -355,3 +355,4 @@ class fontFormatWidget(QtGui.QWidget):
         if debug: print("self.qfont.capitalization(): " + str(self.qfont.capitalization()))
         self.fontChanged.emit(self.qfont)
         if debug: print("dlgTest cbEnumOptionChanged Ende")
+
