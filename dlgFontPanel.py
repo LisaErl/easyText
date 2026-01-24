@@ -21,7 +21,7 @@ class fontFormatWidget(QtGui.QWidget):
     
     def __init__(self, qfont, pointsize, buttonsize, lBox, texttype, *args):
         debug = False
-        if debug:  print("fontFormatWidget __init__ Start")
+        if debug:  print("dlgFormat __init__ Start")
         QtGui.QWidget.__init__(self, *args)
         if debug: print("texttype: " + str(texttype))
         self.qfont = qfont
@@ -32,7 +32,7 @@ class fontFormatWidget(QtGui.QWidget):
         self.texttype = texttype
         self.layout().addLayout(self.__UI_Format_Panel__())
         self.layout().addStretch(1)
-        if debug:  print("fontFormatWidget __init__ Ende")
+        if debug:  print("dlgFormat __init__ Ende")
         
     def __UI_Format_Panel__(self):
         self.fontLayout = QtGui.QVBoxLayout()        
@@ -73,7 +73,7 @@ class fontFormatWidget(QtGui.QWidget):
         
     def __UI_FormatsShort__(self):
         debug = False
-        if debug: print("fontFormatWidget __UI_FormatsShort__ Start")
+        if debug: print("dlgFormat __UI_FormatsShort__ Start")
         if self.texttype == "easyTextGlyphs":
             formats = ["bold", "italic"]
         else:
@@ -110,12 +110,12 @@ class fontFormatWidget(QtGui.QWidget):
         vbox = QtGui.QVBoxLayout()
         vbox.addWidget(groupBox)
         vbox.addStretch()
-        if debug: print("fontFormatWidget __UI_FormatsShort__ Ende")
+        if debug: print("dlgFormat __UI_FormatsShort__ Ende")
         return vbox 
         
     def onGroupBtnChanged(self):
         debug = False
-        if debug: print("fontFormatWidget onGroupBtnChanged Start")        
+        if debug: print("dlgFormat onGroupBtnChanged Start")        
         ident = self.sender().objectName().split("_")
         key = ident[-1]        #
         if key == "bold": 
@@ -133,11 +133,11 @@ class fontFormatWidget(QtGui.QWidget):
             elif key == "strikeOut":
                 self.qfont.setStrikeOut(self.sender().isChecked())
         self.fontChanged.emit(self.qfont)
-        if debug: print("fontFormatWidget onGroupBtnChanged Ende")
+        if debug: print("dlgFormat onGroupBtnChanged Ende")
 
     def __UI_FormatsExtended__(self):
         debug = False
-        if debug: print("fontFormatWidget __UI_FormatsExtended__ Start")
+        if debug: print("dlgFormat __UI_FormatsExtended__ Start")
         vbox = QtGui.QVBoxLayout()
         vbox.addLayout(self.__UI_Spacing__())
         vbox.addLayout(self.__UI_WeightStyleCapitalize__())        
@@ -154,19 +154,19 @@ class fontFormatWidget(QtGui.QWidget):
             group.setFixedHeight(30)
         vbox = QtGui.QVBoxLayout()
         vbox.addWidget(group)
-        if debug: print("fontFormatWidget __UI_FormatsExtended__ Ende")
+        if debug: print("dlgFormat __UI_FormatsExtended__ Ende")
         return vbox
         
     def onToggleGroup(self):
         debug = False
-        if debug: print("fontFormatWidget onToggleGroup Start")        
+        if debug: print("dlgFormat onToggleGroup Start")        
         group = self.sender()
         if group.isChecked():
             group.setFixedHeight(group.sizeHint().height())
         else:
             group.setFixedHeight(30)
         self.resized.emit()
-        if debug: print("fontFormatWidget onToggleGroup Ende")
+        if debug: print("dlgFormat onToggleGroup Ende")
         
     def __UI_Spacing__(self):
         debug = False
@@ -361,5 +361,6 @@ class fontFormatWidget(QtGui.QWidget):
         if debug: print("self.qfont.capitalization(): " + str(self.qfont.capitalization()))
         self.fontChanged.emit(self.qfont)
         if debug: print("dlgFontPanel cbEnumOptionChanged Ende")
+
 
 
