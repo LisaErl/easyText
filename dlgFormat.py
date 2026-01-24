@@ -58,7 +58,8 @@ class dlgFormat(QtGui.QDialog):
         if debug: print("dlgFormat onFontChanged Ende")
         
     def __UI_Menubar__(self):
-        #print("dlgFormat __UI_Menubar__ Start")        
+        debug = False
+        if debug: print("dlgFormat __UI_Menubar__ Start")        
         menu = QtGui.QMenuBar()
         setMenu = QtGui.QMenu("Settings", self)
         menu.addMenu(setMenu)
@@ -66,17 +67,19 @@ class dlgFormat(QtGui.QDialog):
         setAction.setStatusTip("Dialog to change the Settings")
         setAction.triggered.connect(self.callDialogSettings)
         setMenu.addAction(setAction)
+        if debug: print("dlgFormat __UI_Menubar__ Ende")
         return menu
         
     def callDialogSettings(self):
-        #print("dlgFormat callDialogSettings Start")    
+        debug = False
+        if debug: print("dlgFormat callDialogSettings Start")    
         form = dlgSettings(self.ini)
         form.exec_()
         if form.result == "OK":
-            #print("form.result: " + str(form.result))
+            if debug: print("form.result: " + str(form.result))
             self.ini = form.ini
             writeIni(self.ini, inijs)
-        #print("dlgFormat callDialogSettings Ende")
+        if debug: print("dlgFormat callDialogSettings Ende")
         
     def __UI_Text__(self, text):        
         hbox = QtGui.QHBoxLayout()
@@ -116,34 +119,38 @@ class dlgFormat(QtGui.QDialog):
         return hbox        
         
     def onHexInsert(self):
-        print("dlgFormat onGlyphTable Start")
+        debug = False
+        if debug: print("dlgFormat onGlyphTable Start")
         text = self.hexedit.text()
-        print("text: " + str(text))
+        if debug: print("text: " + str(text))
         x = int(text, 16)
-        print("x: " + str(x))
-        print("char: " + str(chr(int(x))))
+        if debug: print("x: " + str(x))
+        if debug: print("char: " + str(chr(int(x))))
         QtGui.QClipboard().setText(chr(int(x)))
-        self.lineedit.paste()        
+        self.lineedit.paste()      
+        if debug: print("dlgFormat onGlyphTable Ende")
         
     def onGlyphTable(self):
-        print("dlgFormat onGlyphTable Start")
+        debug = False
+        if debug: print("dlgFormat onGlyphTable Start")
         form = dlgGlyph(Family = self.qfont.family())
         form.exec_()
         print("form.result: " + str(form.result))
         if form.result == "OK":
             text = form.label.text()
             font = form.label.font()
-            print("text: " + str(text))
-            print("font: " + str(font))
+            if debug: print("text: " + str(text))
+            if debug: print("font: " + str(font))
             #cursor = self.textEdit.textCursor()
             #cursor.insertText(text)
             QtGui.QClipboard().setText(text)
             self.lineedit.paste()
-        print("dlgFormat onGlyphTable Ende")
+        if debug: print("dlgFormat onGlyphTable Ende")
         
     def onTextChanged(self):
-        print("dlgFormat onTextChanged Start")
-        print("dlgFormat onTextChanged Ende")
+        debug = False
+        if debug: print("dlgFormat onTextChanged Start")
+        if debug: print("dlgFormat onTextChanged Ende")
         
     def __UI_Buttons__(self):
         hbox = QtGui.QHBoxLayout()
@@ -160,19 +167,22 @@ class dlgFormat(QtGui.QDialog):
         return hbox
         
     def onCancel(self):
-        print("dlgFormat onCancel Start")
+        debug = False
+        if debug: print("dlgFormat onCancel Start")
         #self.result = self.fontstr        
         self.result = userCancelled
         
         self.close()
-        print("dlgFormat onCancel Ende")
+        if debug: print("dlgFormat onCancel Ende")
         
     def getText(self):
         return self.lineedit.text()
         
     def onOk(self):
-        print("dlgFormat onOk Start")
+        debug = False
+        if debug: print("dlgFormat onOk Start")
         #self.result = self.qfont.toString()
         self.result = userOK
         self.close()
-        print("dlgFormat onOk Ende")
+
+        if debug: print("dlgFormat onOk Ende")
