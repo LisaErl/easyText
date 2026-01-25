@@ -17,6 +17,7 @@ import dlgFormat
 
 __dir__ = os.path.dirname(__file__)
 
+translate = QtCore.QCoreApplication.translate
 
 def executeObject(obj):
     debug = False
@@ -481,8 +482,9 @@ class CommandeasyTextGlyphs():
     def Activated(self):
         debug = False
         if debug:  print("CommandeasyTextGlyphs Activated Start")
-        #FreeCADGui.doCommand("import easyText")
-        #FreeCADGui.doCommand("easyText.makeeasyTextGlyphs()")
+        if len(FreeCAD.listDocuments()) == 0:
+            FreeCAD.Console.PrintError(translate("easyText", "No active document") + "\n")
+            return None
         if debug:  print("document.openTransaction")
         FreeCAD.ActiveDocument.openTransaction("easyText")
         obj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "easyTextGlyphs")

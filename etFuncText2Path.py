@@ -82,6 +82,8 @@ def makeAlignWire(wire, text, centerAt, position, offset):
         offsetWire, position = makeOffsetWireClosed(wire, text, centerAt, position, offset)
     else:
         offsetWire = makeOffsetWireOpen(wire, text, position, offset)
+    if not offsetWire:
+        return None
     if debug: Part.show(offsetWire, "offsetWire")
     if textlength > offsetWire.Length:
         etf._err("etFunctions makeGlyph2Path: textLength (" + str(textlength) + ") > Length AlignWire (" + str(round(offsetWire.Length,2)) + ")")
@@ -430,3 +432,4 @@ def splitWireByLength(wire, length):
     if debug: print("etFunctions splitWireByLength Ende")
     return rightWire, leftWire
     
+

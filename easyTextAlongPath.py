@@ -541,9 +541,9 @@ class CommandEasyTextAlongPath():
     def Activated(self):
         debug = True
         if debug:  print("CommandEasyTextAlongPath Activated Start")
-        #FreeCADGui.doCommand("import easyText")
-        #FreeCADGui.doCommand("easyText.makeEasyTextString()")
-        #FreeCAD.ActiveDocument.openTransaction("easyText")
+        if len(FreeCAD.listDocuments()) == 0:
+            FreeCAD.Console.PrintError(translate("easyText", "No active document") + "\n")
+            return None
         if debug:  print("document.openTransaction")
         FreeCAD.ActiveDocument.openTransaction("easyText")
         obj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "easyTextAlongPath")

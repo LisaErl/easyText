@@ -15,6 +15,7 @@ import Part
 import etFunctions as etf
 import dlgFormat
 
+translate = QtCore.QCoreApplication.translate
 
 __dir__ = os.path.dirname(__file__)
 
@@ -138,7 +139,7 @@ class easyTextStringFeature:
                 #qfont.setPointSize(36)
                 self.obj.Font = form.qfont.toString()
                 self.obj.Text = form.getText()
-                self.obj.FontExt = etf.fontExtToString(form.qfont, True)
+                self.obj.FontExt = etf.fontExtToString(form.qfont)
         if debug: print("easyTextStringFeature editProperty Ende")
         
         
@@ -461,8 +462,9 @@ class CommandEasyTextString():
                 'ToolTip' : __doc__ }
       
     def Activated(self):
-        #FreeCADGui.doCommand("import easyText")
-        #FreeCADGui.doCommand("easyText.makeEasyTextString()")
+        if len(FreeCAD.listDocuments()) == 0:
+            FreeCAD.Console.PrintError(translate("easyText", "No active document") + "\n")
+            return None
         FreeCAD.ActiveDocument.openTransaction("easyText")
         obj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "easyTextString")
         easyTextStringFeature(obj)

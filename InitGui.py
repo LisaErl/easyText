@@ -20,8 +20,9 @@ class easyTextWorkbench(Workbench):
         import easyTextString
         import easyTextGlyphs
         import easyTextAlongPath
+        import easyTextRevolve
         
-        self.list = ["easyTextString", "easyTextGlyphs", "easyTextAlongPath"] # A list of command names created in the line above
+        self.list = ["easyTextString", "easyTextGlyphs", "easyTextAlongPath", "easyTextRevolve"] # A list of command names created in the line above
         self.appendToolbar("easyTextWorkbench", self.list) # creates a new toolbar with your commands
         self.appendMenu("easyTextWorkbench", self.list) # creates a new menu
 
@@ -44,3 +45,4 @@ class easyTextWorkbench(Workbench):
     
        
 Gui.addWorkbench(easyTextWorkbench())
+
