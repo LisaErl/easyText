@@ -32,7 +32,7 @@ class dlgGlyph(QtGui.QDialog):
         
     def __UI_Font__(self):
         debug = False
-        if debug: print("Easytext __UI_Font__ Start")
+        if debug: print("Easytext dlgGlyph __UI_Font__ Start")
         hbox = QtGui.QHBoxLayout()
         self.cbFamily = QtGui.QFontComboBox()
         self.cbFamily.setObjectName("Format_" + "Family")
@@ -74,34 +74,34 @@ class dlgGlyph(QtGui.QDialog):
         self.label = QtGui.QLabel()
         hbox.addWidget(self.label)
         hbox.addStretch()
-        if debug: print("Easytext __UI_Font__ Ende")
+        if debug: print("Easytext dlgGlyph __UI_Font__ Ende")
         return hbox 
 
     def onUnicodeBlockChanged(self):
         debug = False
-        if debug: print("Easytext onUnicodeBlockChanged Start")        
+        if debug: print("Easytext dlgGlyph onUnicodeBlockChanged Start")        
         try:
             self.setFontTable()
             self.ini["LastBlock"] = self.sender().currentText()
         except:
             pass
-        if debug: print("Easytext onUnicodeBlockChanged Ende")
+        if debug: print("Easytext dlgGlyph onUnicodeBlockChanged Ende")
         
     def onFontChanged(self):
         debug = False
-        if debug: print("Easytext onFontChanged Start")
+        if debug: print("Easytext dlgGlyph onFontChanged Start")
         self.setFontTable()
-        if debug: print("Easytext onFontChanged Ende")
+        if debug: print("Easytext dlgGlyph onFontChanged Ende")
         
     def onPointSizeChanged(self):
         debug = False
-        if debug: print("Easytext onPointSizeChanged Start")
+        if debug: print("Easytext dlgGlyph onPointSizeChanged Start")
         self.setFontTable()
-        if debug: print("Easytext onPointSizeChanged Ende")
+        if debug: print("Easytext dlgGlyph onPointSizeChanged Ende")
         
     def __UI_Grid__(self):
         debug = False
-        if debug: print("Easytext __UI_Grid__ Start")
+        if debug: print("Easytext dlgGlyph __UI_Grid__ Start")
         self.grid = QtGui.QGridLayout()
         self.setFontTable()
         vBox = QtGui.QVBoxLayout()
@@ -113,7 +113,7 @@ class dlgGlyph(QtGui.QDialog):
         scrollArea.setWidgetResizable(True)
         scrollArea.setWidget(ui)
         vBox.addWidget(scrollArea) 
-        if debug: print("Easytext __UI_Grid__ Ende")
+        if debug: print("Easytext dlgGlyph __UI_Grid__ Ende")
         return vBox
         
     def clearLayout(self, layout):
@@ -128,7 +128,7 @@ class dlgGlyph(QtGui.QDialog):
         
     def setFontTable(self):     
         debug = False
-        if debug: print("Easytext setFontTable Start")
+        if debug: print("Easytext dlgGlyph setFontTable Start")
         maxBtns = 256
         self.clearLayout(self.hbox)
         if debug: print("self.cb.currentText(): " + str(self.cb.currentText()))
@@ -145,11 +145,11 @@ class dlgGlyph(QtGui.QDialog):
             self.btnsFontTable(start, start + 255)
         else:
             self.btnsFontTable(start, ende)
-        if debug: print("Easytext setFontTable Ende")
+        if debug: print("Easytext dlgGlyph setFontTable Ende")
     
     def comboNext(self, start, ende):
         debug = False
-        if debug: print("Easytext comboNext Start")
+        if debug: print("Easytext dlgGlyph comboNext Start")
         number = ende - start
         step = 255
         options = []
@@ -169,12 +169,12 @@ class dlgGlyph(QtGui.QDialog):
         if self.ini["LastPage"] in options:
             self.cbnext.setCurrentText(self.ini["LastPage"])
             if debug: print("LastPage: " + str(self.ini["LastPage"]))
-        if debug: print("Easytext comboNext Ende")
+        if debug: print("Easytext dlgGlyph comboNext Ende")
         return self.cbnext
         
     def onPageChanged(self):
         debug = False
-        if debug: print("Easytext onPageChanged Start")        
+        if debug: print("Easytext dlgGlyph onPageChanged Start")        
         if not self.grid:
             return
         text = self.sender().currentText()
@@ -184,7 +184,7 @@ class dlgGlyph(QtGui.QDialog):
         start, ende = text.split(":")[-1].split("-")
         self.btnsFontTable(int(start, 16), int(ende, 16))
         if debug: print("start: " + str(start))
-        if debug: print("Easytext onPageChanged Ende")
+        if debug: print("Easytext dlgGlyph onPageChanged Ende")
         
     def btnsFontTable(self, start, ende):
         try:
@@ -210,14 +210,17 @@ class dlgGlyph(QtGui.QDialog):
             col += 1
         
     def onClick(self):
+        debug = False
+        if debug: print("Easytext dlgGlyph onClick Start")
         btn = self.sender()
         char = btn.text()
         font = btn.font()
-        print("char: " + str(char))
+        if debug: print("char: " + str(char))
         text = self.label.text()
         text += char
         self.label.setText(text)
         self.label.setFont(font)
+        if debug: print("Easytext dlgGlyph onClick Ende")
         
         
     def __UI_Buttons__(self):
@@ -244,8 +247,9 @@ class dlgGlyph(QtGui.QDialog):
         
     def closeEvent(self, ev):        
         debug = False
-        if debug: print("Easytext closeEvent Start")
+        if debug: print("Easytext dlgGlyph closeEvent Start")
         writeIni(self.ini, inijs)
 
-        if debug: print("Easytext closeEvent Ende")
+        if debug: print("Easytext dlgGlyph closeEvent Ende")
+
 
