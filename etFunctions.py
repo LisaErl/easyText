@@ -346,9 +346,9 @@ def makeCutouts(infaces):
                     faces[i1] = None
                     faces[i2] = oface
                     break
-    print("faces: " + str(faces))
+    if debug: print("faces: " + str(faces))
     ofaces = [face for face in faces if face]
-    print("ofaces: " + str(ofaces))
+    if debug: print("ofaces: " + str(ofaces))
     if debug: print("etFunctions makeCutouts Ende")
     return sortFacesByArea(ofaces)
     
@@ -913,6 +913,7 @@ def makeGlyphRevolve(tobj, degree, forceBaseline, sunken, makeBase, baseHeight, 
         rshape = Part.Compound([rshape, bottom])
     return rshape
     
+
 
 
 
