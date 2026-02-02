@@ -78,7 +78,7 @@ class fontFormatWidget(QtGui.QWidget):
             formats = ["bold", "italic"]
         else:
             formats = ["bold", "italic", "underline", "strikeOut", "overline"]
-        iconpath = os.path.join(__dir__, 'icons')
+        iconpath = os.path.join(__dir__, 'Icons')
         size = QtCore.QSize(self.buttonsize, self.buttonsize)
         hbox = QtGui.QHBoxLayout()
         self.bGroup = QtGui.QButtonGroup()
@@ -361,6 +361,7 @@ class fontFormatWidget(QtGui.QWidget):
         if debug: print("self.qfont.capitalization(): " + str(self.qfont.capitalization()))
         self.fontChanged.emit(self.qfont)
         if debug: print("dlgFontPanel cbEnumOptionChanged Ende")
+
 
 
 
