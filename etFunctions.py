@@ -330,7 +330,7 @@ def makeWiresTextString(text, font, fontExt, textHeight = 0, textWidth = 0):
     return wires, qfont.toString(), simplified
     
 def makeCutouts(infaces):
-    debug = True
+    debug = False
     if debug: print("etFunctions makeCutouts Start")
     faces = sortFacesByArea(infaces, reverse = False)
     #if debug: [Part.show(face, "face") for face in faces]
@@ -433,7 +433,7 @@ def makeFacesTextString(text, font, fontExt, textHeight = 0, textWidth = 0, fuse
     return dfaces, font
     
 def makeExtrudesTextGlyphs(text, font, fontExt, extrHeight, textHeight = 0, textWidth = 0, fuse = False):
-    debug = True
+    debug = False
     if debug:  print("etFunctions makeExtrudesTextGlyphs Start")
     if debug:  print("fuse: " + str(fuse))
     if debug:  print("extrHeight: " + str(extrHeight))
@@ -634,7 +634,7 @@ def getTextPath(text, qfont):
         [wire.check(True) for wire in wires]
     except:
         textPath = etTextPath(False)
-        debug = True
+        debug = False
         textPath.addGlyphText(0, 0, qfont, text, simplyfied = True)
         if debug: print("textPath: " + str(textPath))
         wires = painterPath2Wires(textPath)
@@ -913,6 +913,7 @@ def makeGlyphRevolve(tobj, degree, forceBaseline, sunken, makeBase, baseHeight, 
         rshape = Part.Compound([rshape, bottom])
     return rshape
     
+
 
 
 
