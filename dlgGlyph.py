@@ -131,7 +131,7 @@ class dlgGlyph(QtGui.QDialog):
         if debug: print("Easytext setFontTable Start")
         maxBtns = 256
         self.clearLayout(self.hbox)
-        print("self.cb.currentText(): " + str(self.cb.currentText()))
+        if debug: print("self.cb.currentText(): " + str(self.cb.currentText()))
         strStart, strEnde = self.ini["UnicodeBlocks"][self.cb.currentText()]
         #self.cb = QtGui.QComboBox()
         #self.cb.setEditable(False)
@@ -248,3 +248,4 @@ class dlgGlyph(QtGui.QDialog):
         writeIni(self.ini, inijs)
 
         if debug: print("Easytext closeEvent Ende")
+
