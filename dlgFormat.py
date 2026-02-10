@@ -135,7 +135,7 @@ class dlgFormat(QtGui.QDialog):
         if debug: print("dlgFormat onGlyphTable Start")
         form = dlgGlyph(Family = self.qfont.family())
         form.exec_()
-        print("form.result: " + str(form.result))
+        if debug: print("form.result: " + str(form.result))
         if form.result == "OK":
             text = form.label.text()
             font = form.label.font()
@@ -186,3 +186,4 @@ class dlgFormat(QtGui.QDialog):
         self.close()
 
         if debug: print("dlgFormat onOk Ende")
+

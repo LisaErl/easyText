@@ -196,7 +196,7 @@ class easyTextGlyphsViewProvider:
         debug = False
         if debug:  print("easyTextGlyphsViewProvider startDefaultEditMode Start")
         document = viewObject.Document.Document
-        print("document.HasPendingTransaction: " + str(document.HasPendingTransaction))
+        if debug: print("document.HasPendingTransaction: " + str(document.HasPendingTransaction))
         if not document.HasPendingTransaction:
             if debug:  print("document.openTransaction")
             document.openTransaction("easyText")
