@@ -23,7 +23,11 @@ class fontFormatWidget(QtGui.QWidget):
         debug = False
         if debug:  print("dlgFormat __init__ Start")
         QtGui.QWidget.__init__(self, *args)
-        if debug: print("texttype: " + str(texttype))
+        if debug: print("texttype: " + str(texttype))        
+        if debug: print("QtCore.qVersion(): " + str(QtCore.qVersion()))
+        self.qtversion = int(QtCore.qVersion().split(".")[0])
+        if debug: print("self.qtversion: " + str(self.qtversion)) 
+        # Version Ende
         self.qfont = qfont
         self.pointsize = pointsize
         self.buttonsize = buttonsize
@@ -88,12 +92,14 @@ class fontFormatWidget(QtGui.QWidget):
             iconpathOn = os.path.join(iconpath, "F_" + key + ".svg")
             iconpathOff = os.path.join(iconpath, "F_" + key + "Inact.svg")
             icon = QtGui.QIcon()
-            try:
+            if self.qtversion > 5:
+                if debug: print("self.qtversion: " + str(self.qtversion))                 
+                icon.addFile(iconpathOff, size, mode=icon.Mode.Normal, state=icon.State.Off)
+                icon.addFile(iconpathOn, size, mode=icon.Mode.Normal, state=icon.State.On)
+            else:
+                if debug: print("self.qtversion: " + str(self.qtversion)) 
                 icon.addFile(iconpathOn, size, mode=icon.Normal, state=icon.On)
                 icon.addFile(iconpathOff, size, mode=icon.Normal, state=icon.Off)
-            except:
-                icon.addFile(iconpathOn, size, mode=icon.Mode.Normal, state=icon.State.On)
-                icon.addFile(iconpathOff, size, mode=icon.Mode.Normal, state=icon.State.Off)
             btn = QtGui.QToolButton()
             btn.setIconSize(size)
             btn.setCheckable(True)
@@ -361,6 +367,7 @@ class fontFormatWidget(QtGui.QWidget):
         if debug: print("self.qfont.capitalization(): " + str(self.qfont.capitalization()))
         self.fontChanged.emit(self.qfont)
         if debug: print("dlgFontPanel cbEnumOptionChanged Ende")
+
 
 
 
