@@ -1,7 +1,7 @@
 # easyText
 Python Workbench for Textshapes in FreeCAD
 
-# Python Workbench for Textshapes 
+## Python Workbench for Textshapes 
 
 Dies ist eine Python-Workbench für FreeCAD, die eine alternative Möglichkeit der Texterstellung testen soll, die für den Benutzer einfacher ist.
 
@@ -18,8 +18,8 @@ die heruntergeladene ZIP-Datei in das FreeCAD User Mod Verzeichnis entpacken. Na
   
 ## Features
 
-### Icon T - easyTextString
-- eine einfache Umsetzung der von QPainterPath gelieferten Linien in Wires. Dies ist die schnellere Methode und es können als Formatierung auch ein durchgestrichener Text und Unterstreichung bzw. Überstreichung benutzt werden. Die einzelnen Elemente es PainterPath werden als Compound zusammengefasst dargestellt. 
+### easyTextString
+easyTextString ist eine einfache Umsetzung der von QPainterPath gelieferten Linien in Wires. Dies ist die schnellere Methode und es können als Formatierung auch ein durchgestrichener Text und Unterstreichung bzw. Überstreichung benutzt werden. Die einzelnen Elemente des PainterPath werden als Compound zusammengefasst dargestellt. 
 Die Auswahl von Text und Fonts können im Taskpanel erfolgen oder im Font-Dialog, siehe separater Punkt.
 
 ### Icon G - easyTextGlyph
