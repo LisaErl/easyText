@@ -220,6 +220,9 @@ def fontExtFromString(qfont, xstr):
             qfont.setOverline(bool(int(vals[i1])))
     if debug: print("etFunctions fontExtFromString Ende")
     return qfont
+
+def _info(text):
+    FreeCAD.Console.PrintNotification(translate("easyText", text) + "\n")
             
 def _wrn(text):
     FreeCAD.Console.PrintWarning(translate("easyText", text) + "\n")
@@ -913,6 +916,7 @@ def makeGlyphRevolve(tobj, degree, forceBaseline, sunken, makeBase, baseHeight, 
         rshape = Part.Compound([rshape, bottom])
     return rshape
     
+
 
 
 
