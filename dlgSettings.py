@@ -16,6 +16,8 @@ class dlgSettings(QtGui.QDialog):
         print("dlgSettings __init__ Start")
         QtGui.QDialog.__init__(self)
         self.ini = ini
+        self.uinijs = os.path.join( __dir__, 'dlgGlyph.json')
+        self.uini = getIni(self.uinijs)
         self.setWindowTitle("easyText Settings")
         self.setLayout(QtGui.QVBoxLayout())
         self.layout().addLayout(self.__UI_Settings__())
@@ -136,3 +138,4 @@ class dlgSettings(QtGui.QDialog):
         self.close()
 
         print("dlgFormat onOk Ende")
+
