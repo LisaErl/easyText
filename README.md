@@ -18,18 +18,27 @@ die heruntergeladene ZIP-Datei in das FreeCAD User Mod Verzeichnis entpacken. Na
   
 ## Features
 
-### <img src="./Icons/etStringIcon.svg"> easyTextString
+### Features zur Texterstellung
+
+#### <img src="./Icons/etStringIcon.svg"> easyTextString
 easyTextString ist eine einfache Umsetzung der von QPainterPath gelieferten Linien in Wires. Dies ist die schnellere Methode und es können als Formatierung auch ein durchgestrichener Text und Unterstreichung bzw. Überstreichung benutzt werden. Die einzelnen Elemente des PainterPath werden als Compound zusammengefasst dargestellt. 
 Die Auswahl von Text und Fonts können im Taskpanel erfolgen oder im Font-Dialog, siehe separater Punkt.
 
-### Icon G - easyTextGlyph
+#### <img src="./Icons/etGlyphIcon.svg"> - easyTextGlyph
 - der Text wird wieder als Compound dargestellt. Allerdings besteht das Compound aus Subshapes, die jeweils einem Buchstaben entsprechen und wieder aus einem oder auch mehreren Wires bestehen. Hierdurch können auch weitergehende Features auf Basis der einzelnen Buchstaben erstellt werden, beispielsweise easyTextAlongPath.
 Die Auswahl von Text und Fonts können im Taskpanel erfolgen oder im Font-Dialog, siehe separater Punkt.
 
-### Icon T auf Linie - easyTextAlongPath
+### Features zur Textdarstellung
+
+#### <img src="./Icons/etTextOnPathIcon.svg"> - easyTextAlongPath
 - besteht aus zwei Elementen: die Buchstaben eines easyTextGlyph laufen an einem FreeCAD-Wire entlang, in etwa so wie die Text-Along-Pfad Funktion von Inkscape.
 Sind ein Wire und ein easyTextGlyph beim Aufruf der Funktion ausgewählt, werden diese übernommen, ansonsten können sie im TaskPanel ausgewählt werden.
-Bei offenen Wires wird der Text immer in der Mitte des Wires zentriert, bei geschlossenen Wires kann der höchste bzw. niedrigste Punkt (jeweils Y-Richtung) 
+Bei offenen Wires wird der Text immer in der Mitte des Wires zentriert, bei geschlossenen Wires kann der höchste bzw. niedrigste Punkt (jeweils Y-Richtung)
+
+### Features für Text-Objekte
+
+#### <img src="./Icons/etTextRevolveIcon.svg"> - easyTextRevolve
+- erstellt ein Revolve aus einem easyTextGlyph. Mit der Option "makeBase" kann eine Basisplatte erzeugt werden und damit 
 
 #### Text-und Font-Dialog
 - zwei Ausrufmöglichkeiten für  den Text-und Font-Dialog 
