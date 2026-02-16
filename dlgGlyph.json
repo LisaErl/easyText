@@ -1,6 +1,7 @@
 {
     "LastBlock": "Miscellaneous Technical", 
     "LastPage": "Page5 : 0x37fc-0x38fb", 
+    "LastUnicodeVersion": "17.0.0", 
     "UnicodeBlocks": {
         "Basic Latin": ["0x20", "0x7f"], 
         "Latin-1 Supplement": ["0xa0", "0xff"], 
@@ -124,4 +125,5 @@
         "CJK Unified Ideographs Extension B": ["0x20000", "0x2a6df"], 
         "CJK Compatibility Ideographs Supplement": ["0x2f800", "0x2fa1f"]
     }
+
 }

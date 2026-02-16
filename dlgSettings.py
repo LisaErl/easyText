@@ -1,5 +1,6 @@
 from PySide import QtCore, QtGui
 
+from urllib.request import urlretrieve
 import os
 __dir__ = os.path.dirname(__file__)
 
@@ -8,15 +9,19 @@ userCancelled       = "Cancelled"
 userOK              = "OK"
 
 from etFuncLayout import getIni, getKeys, getValue, writeIni, setValue
+from etFunctions import _err, _info, _wrn
 
 class dlgSettings(QtGui.QDialog):
     def __init__(self, ini):
         print("dlgSettings __init__ Start")
         QtGui.QDialog.__init__(self)
         self.ini = ini
+        self.uinijs = os.path.join( __dir__, 'dlgGlyph.json')
+        self.uini = getIni(self.uinijs)
         self.setWindowTitle("easyText Settings")
         self.setLayout(QtGui.QVBoxLayout())
         self.layout().addLayout(self.__UI_Settings__())
+        self.layout().addLayout(self.__UI_UnicodeBlocks__())
         self.layout().addLayout(self.__UI_Buttons__())
         print("dlgSettings __init__ Ende")
         
@@ -57,6 +62,52 @@ class dlgSettings(QtGui.QDialog):
         value = self.sender().value()
         print("value: " + str(value))
         setValue(self.ini, value, "Value", keylist)
+
+    def __UI_UnicodeBlocks__(self):
+        hbox = QtGui.QHBoxLayout()
+        lb = QtGui.QLabel("Unicode-Version: ")
+        hbox.addWidget(lb)
+        self.unicodeVersion = QtGui.QLineEdit()
+        self.unicodeVersion.setText(self.uini["LastUnicodeVersion"])
+        hbox.addWidget(self.unicodeVersion)
+        unicodeButton = QtGui.QPushButton('Refresh')
+        unicodeButton.clicked.connect(self.onRefreshUnicode)
+        unicodeButton.setAutoDefault(False)
+        hbox.addWidget(unicodeButton)
+        return hbox
+
+    def onRefreshUnicode(self):
+        debug = False
+        if debug: print("dlgSettings onRefreshUnicode Start")
+        unicodeVersion = self.unicodeVersion.text()
+        url = ("https://www.unicode.org/Public/" + unicodeVersion + "/ucd/Blocks.txt")
+        file = os.path.join(__dir__, 'UnicodeBlocks.txt')
+        try:
+            urlretrieve(url, file)
+        except:
+            _err("onRefreshUnicode: The requested URL " + chr(34) + url + chr(34) + " was not found on the server.")
+            return
+        f = open(file,'r')
+        txt = f.read()
+        f.close()
+        txt = txt[txt.index("\n0")+2:]
+        lines = txt.split("\n")
+        udict = {}
+        for line in lines:
+            if not line.startswith("#") and not line.startswith(" ") and not line == "":
+                try:
+                    blockcode, title = line.split(";")
+                    title = title + "  (" + blockcode.replace("..", " -> ") + ")"
+                    sStart, sEnde = blockcode.split("..")
+                    udict[title] = [sStart, sEnde]
+                except:
+                    if debug: print("line: " + chr(34) + str(line) + chr(34))
+        numblocks = len(udict.keys())
+        _wrn("onRefreshUnicode: " + str(numblocks)  + " Unicode blocks have been updated.")
+        if debug: print("unicodeVersion: " + str(unicodeVersion))
+        self.uini["UnicodeBlocks"] = udict
+        writeIni(self.uini, self.uinijs)
+        if debug: print("dlgSettings onRefreshUnicode Ende")
         
     def __UI_Buttons__(self):
         hbox = QtGui.QHBoxLayout()
@@ -85,4 +136,6 @@ class dlgSettings(QtGui.QDialog):
         #self.result = self.qfont.toString()
         self.result = userOK
         self.close()
+
         print("dlgFormat onOk Ende")
+

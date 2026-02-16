@@ -187,6 +187,8 @@ class dlgGlyph(QtGui.QDialog):
         if debug: print("Easytext dlgGlyph onPageChanged Ende")
         
     def btnsFontTable(self, start, ende):
+        debug = False
+        if debug: print("dlgGlyph btnsFontTable Start")
         try:
             btns = [widget for widget in self.grid.findChildren(QtGui.QPushButton)]
             [btn.deleteLater() for btn in btns]
@@ -195,7 +197,7 @@ class dlgGlyph(QtGui.QDialog):
         col = 0
         row = 0
         for i1 in range(start, ende + 0x1):
-            #print("i1: " + str(i1))
+            if debug: print("i1: " + str(i1))
             if col > 7:
                 col = 0
                 row += 1
@@ -205,9 +207,11 @@ class dlgGlyph(QtGui.QDialog):
             font = self.cbFamily.currentFont()
             font.setPointSize(self.sbPointSize.value())
             btn.setFont(font)
+            btn.setToolTip(str(hex(i1)))
             btn.clicked.connect(self.onClick)
             self.grid.addWidget(btn, row, col)
             col += 1
+        if debug: print("dlgGlyph btnsFontTable Ende")
         
     def onClick(self):
         debug = False
@@ -251,5 +255,6 @@ class dlgGlyph(QtGui.QDialog):
         writeIni(self.ini, inijs)
 
         if debug: print("Easytext dlgGlyph closeEvent Ende")
+
 
 

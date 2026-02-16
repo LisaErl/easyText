@@ -102,8 +102,8 @@ class dlgFormat(QtGui.QDialog):
         
         hbox = QtGui.QHBoxLayout()
         self.hexedit = QtGui.QLineEdit()
-        self.hexedit.setInputMask("HHHH")
-        self.hexedit.setText("00A9")
+        self.hexedit.setInputMask("HHHHH")
+        self.hexedit.setText("000A9")
         hbox.addWidget(self.hexedit)
         btn = QtGui.QPushButton('Insert Char')
         btn.clicked.connect(self.onHexInsert)
@@ -186,6 +186,5 @@ class dlgFormat(QtGui.QDialog):
         self.close()
 
         if debug: print("dlgFormat onOk Ende")
-
 
 
