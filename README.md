@@ -38,7 +38,9 @@ Bei offenen Wires wird der Text immer in der Mitte des Wires zentriert, bei gesc
 ### Features für Text-Objekte
 
 #### <img src="./Icons/etTextRevolveIcon.svg"> - easyTextRevolve
-- erstellt ein Revolve aus einem easyTextGlyph. Mit der Option "makeBase" kann eine Basisplatte erzeugt werden und damit 
+- erstellt ein Revolve aus einem easyTextGlyph. Mit der Option "makeBase" kann eine Basisplatte erzeugt werden und damit ein Namensschild erzeugt werden
+- inspiriert durch https://www.youtube.com/watch?v=jdfLeTEE4P8
+- <img src="./Images/easyTextRevolve.png">
 
 #### Text-und Font-Dialog
 - zwei Ausrufmöglichkeiten für  den Text-und Font-Dialog 
