@@ -24,7 +24,7 @@ The Workbench is experimental and should not be used for serious projects.
 Extract the downloaded ZIP file into the FreeCAD User Mod directory as "easyText". After the next start of FreeCAD, "easyText" should appear in the list of workbenches.
 
 ## Documentation
-The easyText workbench documentation can be found on the [Github wiki](https://github.com/LisaErl/easyText/wiki).
+The easyText workbench documentation for User can be found on the [Github wiki](https://github.com/LisaErl/easyText/wiki).
   
 ## License
 GNU Lesser General Public License v3.0
