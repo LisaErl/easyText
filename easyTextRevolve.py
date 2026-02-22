@@ -20,7 +20,7 @@ __iconpath__ = os.path.join(__dir__, 'etTextRevolveIcon.svg')
 
 
 def executeObject(obj):
-    debug = True
+    debug = False
     if debug:  print("easyTextRevolve executeObject Start")
     if debug:  print("obj.TextObject: " + str(obj.TextObject))
     if obj.TextObject:
