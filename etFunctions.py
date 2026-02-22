@@ -894,6 +894,7 @@ def makeBottom4Shape(shape, height, addX, addY, cornerFilletRadius, topFilletRad
     return bottom
 
 def makeGlyphRevolve(tobj, degree, forceBaseline, sunken, makeBase, baseHeight, baseAddX, baseAddY, baseCornerFilletRadius, baseTopFilletRadius):
+    debug = False
     bottom = None
     descenderList = tobj.DescenderList
     glyphs = tobj.Shape.SubShapes
@@ -926,6 +927,7 @@ def makeGlyphRevolve(tobj, degree, forceBaseline, sunken, makeBase, baseHeight, 
             print(traceback.format_exc())
     return rshape
     
+
 
 
 
