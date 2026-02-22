@@ -4,6 +4,7 @@ import FreeCAD, FreeCADGui
 #import io
 #import json
 import math
+import traceback
 
 import DraftGeomUtils
 import Part
@@ -910,12 +911,22 @@ def makeGlyphRevolve(tobj, degree, forceBaseline, sunken, makeBase, baseHeight, 
     revolveBase = FreeCAD.Vector(shape.BoundBox.XMax, shape.BoundBox.YMin, shape.BoundBox.ZMin)
     revolveAxis = FreeCAD.Vector(1,0,0)
     revolveAngle = degree
-    rshape = shape.revolve(revolveBase, revolveAxis, revolveAngle)
-    newPlacement(rshape, diff = FreeCAD.Vector(0,0,-sunken))
-    if bottom:
-        rshape = Part.Compound([rshape, bottom])
+    try:
+        rshape = shape.revolve(revolveBase, revolveAxis, revolveAngle)
+        newPlacement(rshape, diff = FreeCAD.Vector(0,0,-sunken))
+        if bottom:
+            rshape = Part.Compound([rshape, bottom])
+    except:
+        error_message = traceback.format_exc()
+        if debug: print("error_message: " + str(error_message))        
+        if "Part.OCCError: BRep_API: command not done" in error_message:
+            _err("makeGlyphRevolve: can't create revolve, please use another combination of text/font/format")
+            rshape = None
+        else:
+            print(traceback.format_exc())
     return rshape
     
+
 
 
 
