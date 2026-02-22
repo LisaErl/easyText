@@ -463,8 +463,7 @@ class CommandEasyTextString():
       
     def Activated(self):
         if len(FreeCAD.listDocuments()) == 0:
-            FreeCAD.Console.PrintError(translate("easyText", "No active document") + "\n")
-            return None
+            FreeCAD.newDocument()
         FreeCAD.ActiveDocument.openTransaction("easyText")
         obj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "easyTextString")
         easyTextStringFeature(obj)

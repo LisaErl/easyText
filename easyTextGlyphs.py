@@ -483,8 +483,7 @@ class CommandeasyTextGlyphs():
         debug = False
         if debug:  print("CommandeasyTextGlyphs Activated Start")
         if len(FreeCAD.listDocuments()) == 0:
-            FreeCAD.Console.PrintError(translate("easyText", "No active document") + "\n")
-            return None
+            FreeCAD.newDocument()
         if debug:  print("document.openTransaction")
         FreeCAD.ActiveDocument.openTransaction("easyText")
         obj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "easyTextGlyphs")
