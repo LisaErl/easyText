@@ -26,7 +26,7 @@ def executeObject(obj):
     if obj.TextObject:
         tobj = obj.TextObject
         degree = obj.Degree
-        forceBaseline = obj.ForceBaseline
+        forceBaseline = True
         sunken = obj.Sunken
         makeBase = obj.MakeBase
         baseHeight = obj.BaseHeight
@@ -44,7 +44,6 @@ def initPropertiesObject(obj):
     if debug: print("easyTextRevolve initPropertiesObject Start")
     obj.TextObject = None
     obj.Degree = 50
-    obj.ForceBaseline = False
     obj.Sunken = 0.0
     obj.MakeBase = True
     obj.BaseHeight = 5.0
@@ -71,8 +70,6 @@ class easyTextRevolveFeature:
         obj.addProperty("App::PropertyLink", "TextObject", "Data", _tip)
         _tip = QT_TRANSLATE_NOOP("App::Property", "Degrees of the Revolution.")
         obj.addProperty("App::PropertyInteger", "Degree", "Data", _tip)
-        _tip = QT_TRANSLATE_NOOP("App::Property", "A revolve of an easyTextGlyph is only possible if the lowest point of no letter lies below the baseline. Minor deviations can be corrected with ForceBaseline, but this may affect the visual appearance of the font.")
-        obj.addProperty("App::PropertyBool", "ForceBaseline", "Data", _tip)
         _tip = QT_TRANSLATE_NOOP("App::Property", "Causes the shape to sink into the base.")
         obj.addProperty("App::PropertyLength", "Sunken", "Data", _tip)
         
@@ -228,14 +225,6 @@ class easyTextRevolveWidget(QtGui.QWidget):
         groupdegree.setLayout(hbox)
         
         hbox = QtGui.QHBoxLayout()
-        self.chkForce = QtGui.QCheckBox()
-        self.chkForce.setChecked(self.obj.ForceBaseline)
-        self.chkForce.setToolTip(self.obj.getDocumentationOfProperty("ForceBaseline"))
-        hbox.addWidget(self.chkForce)
-        groupforce = QtGui.QGroupBox("Force Baseline:")
-        groupforce.setLayout(hbox)
-        
-        hbox = QtGui.QHBoxLayout()
         self.Sunken = QtGui.QLineEdit()
         self.Sunken.setValidator(QtGui.QDoubleValidator())
         self.Sunken.setText(str(float(self.obj.Sunken)))
@@ -246,7 +235,6 @@ class easyTextRevolveWidget(QtGui.QWidget):
         
         vbox = QtGui.QVBoxLayout()        
         vbox.addWidget(groupdegree)
-        vbox.addWidget(groupforce)
         vbox.addWidget(groupsunken)
         return vbox         
         
