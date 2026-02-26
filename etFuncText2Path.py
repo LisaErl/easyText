@@ -203,7 +203,12 @@ def getGlyphRectLenList(shapes):
     # get start and Length of Rect per Glyph from glyphShape Boundbox
     if debug: print("etFunctions getGlyphRectLenList Start")
     lenlist = None
-    startlens = [[shape.BoundBox.XMin, shape.BoundBox.XLength] for shape in shapes]
+    xshapes = [shape.copy() for shape in shapes]
+    if debug: print("shapes[0].BoundBox.XMin: " + str(shapes[0].BoundBox.XMin))
+    diff = FreeCAD.Vector(0,0,0) - FreeCAD.Vector(shapes[0].BoundBox.XMin,0,0)
+    if debug: print("diff: " + str(diff))
+    [etf.newPlacement(shape, diff = diff) for shape in xshapes]
+    startlens = [[shape.BoundBox.XMin, shape.BoundBox.XLength] for shape in xshapes]
     if debug: [print(str(i1) + " - startPos/length:  " + str(round(sl[0], 2)) + "/" + str(round(sl[1], 2))) for i1, sl in enumerate(startlens)]
     lenlist = [startlens[0][1]]
     lastPos = startlens[0][1]
@@ -432,4 +437,5 @@ def splitWireByLength(wire, length):
     if debug: print("etFunctions splitWireByLength Ende")
     return rightWire, leftWire
     
+
 
