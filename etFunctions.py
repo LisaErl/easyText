@@ -59,7 +59,7 @@ def painterPath2Wires(path, autoOffset = True):
     if autoOffset:
         offset = QtCore.QPointF(0.0,0.0)
         offset.setX(-(path.boundingRect().x() + (path.boundingRect().width()/2)))
-        offset.setY(-(path.boundingRect().height()/2))
+        #offset.setY(-(path.boundingRect().height()/2))
         path.translate(offset)
 
     if hasattr(path, 'pathOffset'):
@@ -931,6 +931,7 @@ def makeGlyphRevolve(tobj, degree, forceBaseline, sunken, makeBase, baseHeight, 
             print(traceback.format_exc())
     return rshape
     
+
 
 
 
