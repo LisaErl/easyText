@@ -52,6 +52,8 @@ class etTextPath(QtGui.QPainterPath):
             pp = self.simplified()
             self.clear()
             self.addPath(pp)
+        self.pathOffset = QtCore.QPointF(0.0,0.0)
+        self.pathOffset.setX(-(self.boundingRect().x() + (self.boundingRect().width()/2)))
         self.makeSubPaths(oldElementCount)
         self.makeGlyphPaths(font, text, simplyfied)
         self.x = QtGui.QPainterPath()
@@ -118,4 +120,5 @@ class etTextPath(QtGui.QPainterPath):
         glyphRects = [path.controlPointRect() for path in self.glyphPaths]
         return glyphRects
         
+
 
