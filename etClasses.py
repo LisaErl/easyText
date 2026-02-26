@@ -98,6 +98,9 @@ class etTextPath(QtGui.QPainterPath):
         self.GlyphLength = round(endpoint-startpoint, 2)
         
     def makeSubPaths(self, oldElementCount):
+        debug = False
+        if debug: print("etClasses etTextPath makeSubPaths Start")
+        if debug: print("self.pathOffset: " + str(self.pathOffset))
         subPathElements = []
         for i1 in range(oldElementCount, self.elementCount()):
             if self.elementAt(i1).isMoveTo():
@@ -107,8 +110,12 @@ class etTextPath(QtGui.QPainterPath):
             subPathElements.append(self.elementAt(i1))
         if subPathElements:
             self.subPaths.append(pathElements2Path(subPathElements)) 
-        
+        for path in self.subPaths:
+            path.translate(self.pathOffset)
+        if debug: print("etClasses etTextPath makeSubPaths Ende") 
+            
     def getGlyphRects(self):
         glyphRects = [path.controlPointRect() for path in self.glyphPaths]
         return glyphRects
         
+
