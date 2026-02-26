@@ -674,7 +674,7 @@ def getTextWireList(text, font, fontExt, textHeight = 0, textWidth = 0):
     if debug: print("qfont.overline(): " + str(qfont.overline()))  
     textPath = getTextPath(text, qfont)
     if textPath:
-        textPath.translateGlyphText(QtCore.QPointF(-textPath.controlPointRect().x(),textPath.controlPointRect().height()))
+        #textPath.translateGlyphText(QtCore.QPointF(-textPath.controlPointRect().x(),textPath.controlPointRect().height()))
         textLength = textPath.controlPointRect().width()
         textWireList = getGlyphWires(textPath, qfont)
         descList = getDescenderList(textPath)
@@ -931,6 +931,7 @@ def makeGlyphRevolve(tobj, degree, forceBaseline, sunken, makeBase, baseHeight, 
             print(traceback.format_exc())
     return rshape
     
+
 
 
 
