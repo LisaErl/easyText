@@ -46,7 +46,7 @@ def makePainterCurve(plist):
 def makePoint(x, y):
     return FreeCAD.Vector(x, y, 0)
             
-def painterPath2Wires(path, setOffset = True):
+def painterPath2Wires(path, autoOffset = True):
     debug = False
     if debug: print("etFunctions painterPath2Wires Start")
     if debug: print("path.elementCount(): " + str(path.elementCount()))
@@ -56,11 +56,15 @@ def painterPath2Wires(path, setOffset = True):
     transform.scale(1,-1)
     path = transform.map(path)
     
-    if setOffset:
+    if autoOffset:
         offset = QtCore.QPointF(0.0,0.0)
         offset.setX(-(path.boundingRect().x() + (path.boundingRect().width()/2)))
-        offset.setY(-(path.boundingRect().height()/2))
+        #offset.setY(-(path.boundingRect().height()/2))
         path.translate(offset)
+
+    if hasattr(path, 'pathOffset'):
+        if debug: print("pathOffset: " + str(path.pathOffset))
+        path.translate(path.pathOffset)
     
     if debug: print("path: " + str(path))
     wires = []
@@ -670,7 +674,7 @@ def getTextWireList(text, font, fontExt, textHeight = 0, textWidth = 0):
     if debug: print("qfont.overline(): " + str(qfont.overline()))  
     textPath = getTextPath(text, qfont)
     if textPath:
-        textPath.translateGlyphText(QtCore.QPointF(-textPath.controlPointRect().x(),textPath.controlPointRect().height()))
+        #textPath.translateGlyphText(QtCore.QPointF(-textPath.controlPointRect().x(),textPath.controlPointRect().height()))
         textLength = textPath.controlPointRect().width()
         textWireList = getGlyphWires(textPath, qfont)
         descList = getDescenderList(textPath)
@@ -927,6 +931,9 @@ def makeGlyphRevolve(tobj, degree, forceBaseline, sunken, makeBase, baseHeight, 
             print(traceback.format_exc())
     return rshape
     
+
+
+
 
 
 
